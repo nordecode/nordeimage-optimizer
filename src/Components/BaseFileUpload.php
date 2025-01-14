@@ -1,6 +1,6 @@
 <?php
 
-namespace Joshembling\ImageOptimizer\Components;
+namespace Nordecode\ImageOptimizer\Components;
 
 use Closure;
 use Filament\Forms\Components\Concerns;
@@ -29,6 +29,8 @@ class BaseFileUpload extends Field
     protected array | Arrayable | Closure | null $acceptedFileTypes = null;
 
     protected bool | Closure $isDeletable = true;
+
+    protected int | Closure | null $maxParallelUploads = null;
 
     protected bool | Closure $isDownloadable = false;
 
@@ -199,7 +201,7 @@ class BaseFileUpload extends Field
             $filename = $component->getUploadedFileNameForStorage($file);
             $optimize = $component->getOptimization();
             $resize = $component->getResize();
-            //$originalBinaryFile = $file->get();
+            // $originalBinaryFile = $file->get();
 
             if (
                 str_contains($file->getMimeType(), 'image') &&
@@ -264,6 +266,18 @@ class BaseFileUpload extends Field
                 $component->getDiskName()
             );
         });
+    }
+
+    public function maxParallelUploads(int | Closure | null $count): static
+    {
+        $this->maxParallelUploads = $count;
+
+        return $this;
+    }
+
+    public function getMaxParallelUploads(): ?int
+    {
+        return $this->evaluate($this->maxParallelUploads);
     }
 
     protected function callAfterStateUpdatedHook(Closure $hook): void

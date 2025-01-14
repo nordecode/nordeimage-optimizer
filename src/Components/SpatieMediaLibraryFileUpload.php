@@ -1,6 +1,6 @@
 <?php
 
-namespace Joshembling\ImageOptimizer\Components;
+namespace Nordecode\ImageOptimizer\Components;
 
 use Closure;
 use Filament\Forms\Components\FileUpload;

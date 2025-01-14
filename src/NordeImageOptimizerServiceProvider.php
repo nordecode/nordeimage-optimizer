@@ -1,22 +1,22 @@
 <?php
 
-namespace Joshembling\ImageOptimizer;
+namespace Nordecode\ImageOptimizer;
 
 use Filament\Forms\Components\BaseFileUpload;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\AliasLoader;
-use Joshembling\ImageOptimizer\Components\BaseFileUpload as CustomBaseFileUpload;
-use Joshembling\ImageOptimizer\Components\SpatieMediaLibraryFileUpload as CustomSpatieMediaLibraryFileUpload;
+use Nordecode\ImageOptimizer\Components\BaseFileUpload as CustomBaseFileUpload;
+use Nordecode\ImageOptimizer\Components\SpatieMediaLibraryFileUpload as CustomSpatieMediaLibraryFileUpload;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class ImageOptimizerServiceProvider extends PackageServiceProvider
+class NordeImageOptimizerServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'image-optimizer';
 
-    public function boot()
+    public function boot(): void
     {
         AliasLoader::getInstance()->alias(BaseFileUpload::class, CustomBaseFileUpload::class);
         AliasLoader::getInstance()->alias(SpatieMediaLibraryFileUpload::class, CustomSpatieMediaLibraryFileUpload::class);

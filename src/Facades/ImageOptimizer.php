@@ -1,11 +1,11 @@
 <?php
 
-namespace Joshembling\ImageOptimizer\Facades;
+namespace Nordecode\ImageOptimizer\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Joshembling\ImageOptimizer\ImageOptimizer
+ * @see \Nordecode\ImageOptimizer\ImageOptimizer
  */
 class ImageOptimizer extends Facade
 {
